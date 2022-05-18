@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="test">
+        
+    </div>
+</body>
+</html>
+<script>
+     const emojiMap = {
+            happy: '🙂',
+            sad:'😢',
+            smiley:'😀'
+        }
+        let result;
+
+        const regExpression =  /::([^:]*)::/g
+        const text = "suma ::happy::."
+        console.log(text)
+        const emojiIt = (re , text) =>{
+            while(result = re.exec(text)){
+                text = text.replace(result[0], emojiMap[result[1]])
+
+            }
+            return text
+        }
+        document.getElementById('test').innerHTML = emojiIt(regExpression,text)
+</script>
