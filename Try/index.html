@@ -5,12 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #t{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    
-    <div id="test">
+    <div id="t">
+    <div id="test1">
         
     </div>
+    <div id="test2">
+        
+    </div>
+    <div id="test3">
+        
+    </div>
+</div>
 </body>
 </html>
 <script>
@@ -23,6 +35,9 @@
 
         const regExpression =  /::([^:]*)::/g
         const text = "suma ::happy::."
+        const text2 = "sad  ::sad::."
+        const text3 = "smiley ::smiley::."
+
         console.log(text)
         const emojiIt = (re , text) =>{
             while(result = re.exec(text)){
@@ -31,5 +46,7 @@
             }
             return text
         }
-        document.getElementById('test').innerHTML = emojiIt(regExpression,text)
+        document.getElementById('test1').innerHTML = emojiIt(regExpression,"suma ::happy::")
+        document.getElementById('test2').innerHTML = emojiIt(regExpression,"sad  ::sad::.")
+        document.getElementById('test3').innerHTML = emojiIt(regExpression,"smiley ::smiley::.")
 </script>

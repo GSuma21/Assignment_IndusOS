@@ -25,6 +25,21 @@ const Main = () =>{
              
         setData(event.target.value)
 
+        app.post("/", async(req, res) => {
+            try {
+                const input = req.body.input;
+
+                const registerUser = new Register({
+                    input:req.body.input                 
+                })
+                const registered = await registerUser.save();
+                res.status(201).render("error");
+            } catch (error) {
+                res.status(201).render("")
+            }
+        
+        });
+
         
         // console.log(event.target.value)
        
@@ -76,13 +91,7 @@ const Main = () =>{
            
         {/* setPrint(true) */}
             <button onClick={() => displayOutput(data)}>Output</button>
-            <div>
-            {
-                print?               
-                <h1>{data}</h1>
-                :null
-            }
-            </div>
+            
             </div>
 
     );
